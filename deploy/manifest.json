@@ -1,0 +1,12 @@
+[
+  {"name":"AccessPath", "file":"contracts/access_path.py", "args":[]},
+  {"name":"WorksConflict", "file":"contracts/works_conflict.py", "args":[]},
+  {"name":"RepairMerge", "file":"contracts/repair_merge.py", "args":[]},
+  {"name":"NoticeClock", "file":"contracts/notice_clock.py", "args":[1440]},
+  {"name":"OpenFieldMap", "file":"contracts/open_field_map.py", "args":[]},
+  {"name":"HandoffCondition", "file":"contracts/handoff_condition.py", "args":[]},
+  {"name":"DonationAllocation", "file":"contracts/donation_allocation.py", "args":[]},
+  {"name":"MinutesCommitment", "file":"contracts/minutes_commitment.py", "args":[]},
+  {"name":"MeterContinuity", "file":"contracts/meter_continuity.py", "args":[]},
+  {"name":"PublicFeedPulse", "file":"contracts/public_feed_pulse.py", "args":[]}
+]

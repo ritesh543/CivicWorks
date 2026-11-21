@@ -1,0 +1,499 @@
+{
+  "AccessPath": {
+    "writes": [
+      {
+        "id": "report",
+        "method": "assess",
+        "signer": "operator",
+        "args": [
+          "CivicWorks demo library",
+          "West entrance route",
+          "The West entrance route is step-free. An accessible restroom is reachable on the West entrance route. No lift serves the West entrance route."
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "method": "get_report",
+        "args": [
+          {
+            "result": "report"
+          }
+        ],
+        "expected": {
+          "features": {
+            "step_free_entry": "YES",
+            "accessible_restroom": "YES",
+            "lift_serves_route": "NO"
+          }
+        }
+      }
+    ]
+  },
+  "WorksConflict": {
+    "writes": [
+      {
+        "id": "comparison",
+        "method": "compare",
+        "signer": "operator",
+        "args": [
+          "Oak Avenue between Maple Street and River Drive",
+          30000010,
+          30000070,
+          true,
+          "The segment of Oak Avenue from Maple Street to River Drive",
+          30000040,
+          30000100,
+          true
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "method": "get_check",
+        "args": [
+          {
+            "result": "comparison"
+          }
+        ],
+        "expected": {
+          "overlap_minutes": 30,
+          "location_relation": "SAME",
+          "outcome": "FULL_CONFLICT"
+        }
+      }
+    ]
+  },
+  "RepairMerge": {
+    "writes": [
+      {
+        "id": "primary",
+        "method": "file_report",
+        "signer": "operator",
+        "args": [
+          {
+            "scenario": "LIB"
+          },
+          30000000,
+          "Door D2 has a jammed closer and stops halfway shut."
+        ]
+      },
+      {
+        "id": "duplicate",
+        "method": "file_report",
+        "signer": "operator",
+        "args": [
+          {
+            "scenario": "LIB"
+          },
+          30000010,
+          "The same door D2 stops halfway when closing because its closer jams."
+        ]
+      },
+      {
+        "id": "review",
+        "method": "review_duplicate",
+        "signer": "operator",
+        "args": [
+          {
+            "result": "duplicate"
+          },
+          {
+            "result": "primary"
+          }
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "method": "get_report",
+        "args": [
+          {
+            "result": "duplicate"
+          }
+        ],
+        "expected": {
+          "duplicate_of": {
+            "result": "primary"
+          }
+        }
+      },
+      {
+        "method": "get_report",
+        "args": [
+          {
+            "result": "primary"
+          }
+        ],
+        "expected": {
+          "linked_reports": 1
+        }
+      }
+    ]
+  },
+  "NoticeClock": {
+    "writes": [
+      {
+        "id": "notice",
+        "method": "check",
+        "signer": "operator",
+        "args": [
+          "West entrance closure at CivicWorks demo library",
+          "14 February 2027 at 09:00 UTC",
+          30040380,
+          30043260,
+          "The West entrance at CivicWorks demo library will close for door repairs starting 14 February 2027 at 09:00 UTC."
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "method": "get_report",
+        "args": [
+          {
+            "result": "notice"
+          }
+        ],
+        "expected": {
+          "lead_minutes": 2880,
+          "content": "COMPLETE",
+          "passes": true
+        }
+      }
+    ]
+  },
+  "OpenFieldMap": {
+    "writes": [
+      {
+        "id": "mapping",
+        "method": "propose",
+        "signer": "operator",
+        "args": [
+          {
+            "scenario": "paths@1"
+          },
+          "walkway_width_cm",
+          "Clear traversable width of a pedestrian walking path in centimeters.",
+          "cm",
+          "PATH_WIDTH"
+        ]
+      },
+      {
+        "id": "activate",
+        "method": "activate",
+        "signer": "operator",
+        "args": [
+          {
+            "result": "mapping"
+          }
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "method": "normalize",
+        "args": [
+          {
+            "result": "mapping"
+          },
+          145
+        ],
+        "expected": 1450
+      }
+    ]
+  },
+  "HandoffCondition": {
+    "writes": [
+      {
+        "id": "offer",
+        "method": "offer",
+        "signer": "operator",
+        "args": [
+          {
+            "scenario": "CART-14"
+          },
+          {
+            "account": "recipient"
+          },
+          "All four wheels turn freely. The front handle has no cracks."
+        ]
+      },
+      {
+        "id": "inspection",
+        "method": "inspect",
+        "signer": "recipient",
+        "args": [
+          {
+            "result": "offer"
+          },
+          "All four wheels turn freely. A new 10 centimeter crack is visible on the front handle."
+        ]
+      },
+      {
+        "id": "resolution",
+        "method": "resolve_exception",
+        "signer": "operator",
+        "args": [
+          {
+            "result": "offer"
+          },
+          true,
+          "Accept with the handle crack recorded for repair."
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "method": "get_handoff",
+        "args": [
+          {
+            "result": "offer"
+          }
+        ],
+        "expected": {
+          "assessment": "CHANGED",
+          "status": "ACCEPTED_WITH_EXCEPTION"
+        }
+      }
+    ]
+  },
+  "DonationAllocation": {
+    "writes": [
+      {
+        "id": "channel",
+        "method": "open_channel",
+        "signer": "operator",
+        "args": [
+          {
+            "scenario": "chairs"
+          },
+          "All chairs must be intact with all four feet attached.",
+          10
+        ]
+      },
+      {
+        "id": "lot",
+        "method": "submit_lot",
+        "signer": "operator",
+        "args": [
+          {
+            "result": "channel"
+          },
+          {
+            "scenario": "LOT-1"
+          },
+          6,
+          "All six chairs are intact and all four feet of each chair are attached."
+        ]
+      },
+      {
+        "id": "reserve",
+        "method": "reserve",
+        "signer": "operator",
+        "args": [
+          {
+            "result": "lot"
+          }
+        ]
+      },
+      {
+        "id": "complete",
+        "method": "complete",
+        "signer": "operator",
+        "args": [
+          {
+            "result": "lot"
+          },
+          true
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "method": "get_channel",
+        "args": [
+          {
+            "result": "channel"
+          }
+        ],
+        "expected": {
+          "remaining": 4,
+          "reserved": 0,
+          "distributed": 6
+        }
+      },
+      {
+        "method": "get_lot",
+        "args": [
+          {
+            "result": "lot"
+          }
+        ],
+        "expected": {
+          "state": "DISTRIBUTED"
+        }
+      }
+    ]
+  },
+  "MinutesCommitment": {
+    "writes": [
+      {
+        "id": "minutes",
+        "method": "publish",
+        "signer": "operator",
+        "args": [
+          {
+            "scenario": "board-17"
+          },
+          "The board discussed repainting a room and set no action for it.\nResolved and adopted by unanimous vote: Facilities will replace the lobby bench by 12 December 2027."
+        ]
+      },
+      {
+        "id": "claim",
+        "method": "certify",
+        "signer": "operator",
+        "args": [
+          {
+            "result": "minutes"
+          },
+          "Replace the lobby bench",
+          "Facilities",
+          "12 December 2027"
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "method": "get_certification",
+        "args": [
+          {
+            "result": "claim"
+          }
+        ],
+        "expected": {
+          "approved": true,
+          "paragraph_number": 2,
+          "source_quote": "Resolved and adopted by unanimous vote: Facilities will replace the lobby bench by 12 December 2027."
+        }
+      }
+    ]
+  },
+  "MeterContinuity": {
+    "writes": [
+      {
+        "id": "meter",
+        "method": "register",
+        "signer": "operator",
+        "args": [
+          {
+            "scenario": "PUMP-3"
+          },
+          1000,
+          60,
+          990,
+          30000000
+        ]
+      },
+      {
+        "id": "reading",
+        "method": "observe",
+        "signer": "operator",
+        "args": [
+          {
+            "result": "meter"
+          },
+          5,
+          30000020,
+          "The same installed meter at this asset wrapped from 999 to 000 and then reached 005. No replacement was made."
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "method": "get_reading",
+        "args": [
+          {
+            "result": "reading"
+          }
+        ],
+        "expected": {
+          "status": "ROLLOVER",
+          "credited_increment": 15
+        }
+      },
+      {
+        "method": "get_meter",
+        "args": [
+          {
+            "result": "meter"
+          }
+        ],
+        "expected": {
+          "cumulative_increment": 15,
+          "last_display": 5,
+          "segment": 1
+        }
+      }
+    ]
+  },
+  "PublicFeedPulse": {
+    "writes": [
+      {
+        "id": "watch",
+        "method": "open_watch",
+        "signer": "operator",
+        "args": [
+          "Reserved example domain for use in documentation examples",
+          "https://example.com/",
+          "https://example.org/"
+        ]
+      },
+      {
+        "id": "refresh_first",
+        "method": "refresh",
+        "signer": "operator",
+        "args": [
+          {
+            "result": "watch"
+          },
+          1
+        ]
+      },
+      {
+        "id": "refresh_second",
+        "method": "refresh",
+        "signer": "operator",
+        "args": [
+          {
+            "result": "watch"
+          },
+          2
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "method": "get_scan",
+        "args": [
+          {
+            "result": "refresh_first"
+          }
+        ],
+        "expected": {
+          "status": "UNCONFIRMED"
+        }
+      },
+      {
+        "method": "get_watch",
+        "args": [
+          {
+            "result": "watch"
+          }
+        ],
+        "expected": {
+          "round": 2
+        }
+      }
+    ]
+  }
+}

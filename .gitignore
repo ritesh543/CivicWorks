@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+.venv/
+*.pyc
+__pycache__/
+.pytest_cache/
+node_modules/
+deployments.local.json
+deployments.local.json.lock
+deployments.local.json.tmp
+
+artifacts/

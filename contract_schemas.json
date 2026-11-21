@@ -1,0 +1,844 @@
+{
+  "AccessPath": {
+    "address": "0x166786a187Cd5cAc0A22940EfFa850caDA6341d8",
+    "schema": {
+      "ctor": {
+        "params": [],
+        "kwparams": {}
+      },
+      "methods": {
+        "assess": {
+          "params": [
+            [
+              "venue",
+              "string"
+            ],
+            [
+              "route",
+              "string"
+            ],
+            [
+              "public_evidence",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        },
+        "count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "get_report": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        }
+      }
+    }
+  },
+  "WorksConflict": {
+    "address": "0x17d89e5f7Ca26A297e5D9690f2E19d1546B1b3d6",
+    "schema": {
+      "ctor": {
+        "params": [],
+        "kwparams": {}
+      },
+      "methods": {
+        "compare": {
+          "params": [
+            [
+              "first_location",
+              "string"
+            ],
+            [
+              "first_start",
+              "int"
+            ],
+            [
+              "first_end",
+              "int"
+            ],
+            [
+              "first_full",
+              "bool"
+            ],
+            [
+              "second_location",
+              "string"
+            ],
+            [
+              "second_start",
+              "int"
+            ],
+            [
+              "second_end",
+              "int"
+            ],
+            [
+              "second_full",
+              "bool"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        },
+        "count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "get_check": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        }
+      }
+    }
+  },
+  "RepairMerge": {
+    "address": "0x2107403e86c8a9Ab81E8160cCcC56570596A5a33",
+    "schema": {
+      "ctor": {
+        "params": [],
+        "kwparams": {}
+      },
+      "methods": {
+        "count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "file_report": {
+          "params": [
+            [
+              "site_code",
+              "string"
+            ],
+            [
+              "observed_minute",
+              "int"
+            ],
+            [
+              "observation",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        },
+        "get_report": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "get_review": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "review_count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "review_duplicate": {
+          "params": [
+            [
+              "newer_index",
+              "int"
+            ],
+            [
+              "primary_index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "string",
+          "payable": false
+        }
+      }
+    }
+  },
+  "NoticeClock": {
+    "address": "0xe668ca5c1d0AFB8A631cE1B3a028146DA6A244a8",
+    "schema": {
+      "ctor": {
+        "params": [
+          [
+            "minimum_lead_minutes",
+            "int"
+          ]
+        ],
+        "kwparams": {}
+      },
+      "methods": {
+        "check": {
+          "params": [
+            [
+              "scope",
+              "string"
+            ],
+            [
+              "effective_label",
+              "string"
+            ],
+            [
+              "posted_minute",
+              "int"
+            ],
+            [
+              "effective_minute",
+              "int"
+            ],
+            [
+              "notice",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        },
+        "count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "get_report": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "minimum_lead": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        }
+      }
+    }
+  },
+  "OpenFieldMap": {
+    "address": "0xC4B6381f9bB9A0a30Fd988Fe753f94cD70909570",
+    "schema": {
+      "ctor": {
+        "params": [],
+        "kwparams": {}
+      },
+      "methods": {
+        "activate": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "null",
+          "payable": false
+        },
+        "active_proposal": {
+          "params": [
+            [
+              "publisher",
+              "string"
+            ],
+            [
+              "feed_revision",
+              "string"
+            ],
+            [
+              "source_column",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "get_proposal": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "normalize": {
+          "params": [
+            [
+              "index",
+              "int"
+            ],
+            [
+              "source_value",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "propose": {
+          "params": [
+            [
+              "feed_revision",
+              "string"
+            ],
+            [
+              "source_column",
+              "string"
+            ],
+            [
+              "description",
+              "string"
+            ],
+            [
+              "source_unit",
+              "string"
+            ],
+            [
+              "target",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        }
+      }
+    }
+  },
+  "HandoffCondition": {
+    "address": "0xbF6eAdCBBEF8174184B7C792EAbD1EDA8663F7a8",
+    "schema": {
+      "ctor": {
+        "params": [],
+        "kwparams": {}
+      },
+      "methods": {
+        "cancel_offer": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "null",
+          "payable": false
+        },
+        "count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "get_handoff": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "inspect": {
+          "params": [
+            [
+              "index",
+              "int"
+            ],
+            [
+              "observed_condition",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "string",
+          "payable": false
+        },
+        "offer": {
+          "params": [
+            [
+              "asset_ref",
+              "string"
+            ],
+            [
+              "recipient",
+              "string"
+            ],
+            [
+              "expected_condition",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        },
+        "resolve_exception": {
+          "params": [
+            [
+              "index",
+              "int"
+            ],
+            [
+              "accept",
+              "bool"
+            ],
+            [
+              "public_reason",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "string",
+          "payable": false
+        }
+      }
+    }
+  },
+  "DonationAllocation": {
+    "address": "0xD2C897DC06b167bc9725aB02373C48991D344273",
+    "schema": {
+      "ctor": {
+        "params": [],
+        "kwparams": {}
+      },
+      "methods": {
+        "complete": {
+          "params": [
+            [
+              "lot_index",
+              "int"
+            ],
+            [
+              "distributed",
+              "bool"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "null",
+          "payable": false
+        },
+        "count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "get_channel": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "get_lot": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "lot_count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "open_channel": {
+          "params": [
+            [
+              "name",
+              "string"
+            ],
+            [
+              "acceptance_rule",
+              "string"
+            ],
+            [
+              "capacity",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        },
+        "reserve": {
+          "params": [
+            [
+              "lot_index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "null",
+          "payable": false
+        },
+        "submit_lot": {
+          "params": [
+            [
+              "channel_index",
+              "int"
+            ],
+            [
+              "lot_ref",
+              "string"
+            ],
+            [
+              "quantity",
+              "int"
+            ],
+            [
+              "description",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        }
+      }
+    }
+  },
+  "MinutesCommitment": {
+    "address": "0xAbf23eD48C1914086C873239Ef1452254B70C01B",
+    "schema": {
+      "ctor": {
+        "params": [],
+        "kwparams": {}
+      },
+      "methods": {
+        "certification_count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "certify": {
+          "params": [
+            [
+              "meeting_index",
+              "int"
+            ],
+            [
+              "action",
+              "string"
+            ],
+            [
+              "assignee",
+              "string"
+            ],
+            [
+              "deadline",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        },
+        "count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "get_certification": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "get_minutes": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "publish": {
+          "params": [
+            [
+              "meeting_ref",
+              "string"
+            ],
+            [
+              "public_minutes",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        }
+      }
+    }
+  },
+  "MeterContinuity": {
+    "address": "0x38d1E3960cA3488315f20B6226F74d2830031520",
+    "schema": {
+      "ctor": {
+        "params": [],
+        "kwparams": {}
+      },
+      "methods": {
+        "count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "get_meter": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "get_reading": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "observe": {
+          "params": [
+            [
+              "meter_index",
+              "int"
+            ],
+            [
+              "display",
+              "int"
+            ],
+            [
+              "observed_minute",
+              "int"
+            ],
+            [
+              "service_note",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        },
+        "reading_count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "register": {
+          "params": [
+            [
+              "asset_ref",
+              "string"
+            ],
+            [
+              "dial_modulus",
+              "int"
+            ],
+            [
+              "maximum_increment",
+              "int"
+            ],
+            [
+              "initial",
+              "int"
+            ],
+            [
+              "observed_minute",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        }
+      }
+    }
+  },
+  "PublicFeedPulse": {
+    "address": "0xEbFF2D9379E1F9c9E38a13e5dC071f0aa415400a",
+    "schema": {
+      "ctor": {
+        "params": [],
+        "kwparams": {}
+      },
+      "methods": {
+        "count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        },
+        "get_scan": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "get_watch": {
+          "params": [
+            [
+              "index",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "string"
+        },
+        "open_watch": {
+          "params": [
+            [
+              "subject",
+              "string"
+            ],
+            [
+              "first_url",
+              "string"
+            ],
+            [
+              "second_url",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        },
+        "refresh": {
+          "params": [
+            [
+              "watch_index",
+              "int"
+            ],
+            [
+              "next_round",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "int",
+          "payable": false
+        },
+        "scan_count": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "int"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "network": "studionet",
+  "chain_id": 61999,
+  "mode": "rpc_simulation",
+  "cases": {
+    "AccessPath": {
+      "address": "0x166786a187Cd5cAc0A22940EfFa850caDA6341d8",
+      "method": "assess",
+      "return_value": 0,
+      "count_before": 0,
+      "count_after": 0,
+      "status": "PASS"
+    },
+    "WorksConflict": {
+      "address": "0x17d89e5f7Ca26A297e5D9690f2E19d1546B1b3d6",
+      "method": "compare",
+      "return_value": 0,
+      "count_before": 0,
+      "count_after": 0,
+      "status": "PASS"
+    },
+    "NoticeClock": {
+      "address": "0xe668ca5c1d0AFB8A631cE1B3a028146DA6A244a8",
+      "method": "check",
+      "return_value": 0,
+      "count_before": 0,
+      "count_after": 0,
+      "status": "PASS"
+    },
+    "OpenFieldMap": {
+      "address": "0xC4B6381f9bB9A0a30Fd988Fe753f94cD70909570",
+      "method": "propose",
+      "return_value": 0,
+      "count_before": 0,
+      "count_after": 0,
+      "status": "PASS"
+    }
+  },
+  "checked_at": "2026-11-21T03:57:20.874Z",
+  "passed": 4
+}
